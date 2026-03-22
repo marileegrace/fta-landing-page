@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn technical analysis, macro market drivers, and options trading with Foundational Trading Academy. Complete beginner-friendly curriculum with live implementation calls and 1-on-1 support.">
+    <meta name="theme-color" content="#2F4A31">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Foundational Trading Academy - Learn to Trade with Confidence">
+    <meta property="og:description" content="Real foundations. Real strategies. Real confidence. Join 70+ students learning to read charts and trade smart.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/FTN CIRCLE LOGO GREEN copy.png">
+    <link rel="icon" type="image/png" href="images/FTN CIRCLE LOGO GREEN copy.png">
+
+    <title>Foundational Trading Academy - Learn to Read the Markets</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-forest-green: #2F4A31;
+            --color-forest-dark: #1a2e1c;
+            --color-sand: #DBD2C6;
+            --color-mist: #D3DEE3;
+            --color-gold: #FCC55B;
+            --color-gray: #8B8B8B;
+            --color-off-white: #FAFAF7;
+            --color-light-bg: #f8f7f5;
+            --font-primary: 'Quicksand', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: #333;
+            background-color: var(--color-off-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+            padding: 1rem 2rem;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--color-forest-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-forest-green);
+        }
+
+        .nav-cta {
+            background: var(--color-forest-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-forest-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(47, 74, 49, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.8rem 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: white;
+                padding: 1rem;
+                gap: 1rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+            background: linear-gradient(135deg, var(--color-forest-green) 0%, var(--color-forest-dark) 100%);
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 em {
+            font-style: italic;
+            color: var(--color-gold);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .hero-cta {
+            background: var(--color-gold);
+            color: var(--color-forest-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-gold);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 1.05rem;
+        }
+
+        .hero-cta:hover {
+            background: transparent;
+            color: var(--color-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-logo-placeholder {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 350px;
+            animation: slideUp 0.8s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .star-rating {
+            color: var(--color-gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-attribution {
+            font-size: 0.85rem;
+            color: var(--color-sand);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Social Proof Bar */
+        .social-proof {
+            background: var(--color-light-bg);
+            padding: 4rem 2rem;
+        }
+
+        .social-proof-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .proof-intro {
+            text-align: center;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .proof-heading {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            line-height: 1.4;
+        }
+
+        .proof-heading em {
+            font-style: italic;
+            color: var(--color-forest-green);
+        }
+
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-block {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-forest-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        /* Section Chip */
+        .section-chip {
+            display: inline-block;
+            background: var(--color-mist);
+            color: var(--color-forest-green);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* The Problem Section */
+        .problem-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .problem-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .problem-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            line-height: 1.3;
+        }
+
+        .problem-heading em {
+            font-style: italic;
+            color: var(--color-gold);
+        }
+
+        .problem-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .problem-card {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #ffe6e6;
+            color: #d32f2f;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .problem-card .card-tag {
+            background: #ffe6e6;
+            color: #d32f2f;
+        }
+
+        .solution-card .card-tag {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .pain-points {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pain-point {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .pain-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: #d32f2f;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .problem-bottom {
+            border-top: 1px solid #eee;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .problem-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f5f5f5, #efefef);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .problem-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 5rem 2rem;
+            background: var(--color-light-bg);
+        }
+
+        .solution-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .solution-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            line-height: 1.3;
+        }
+
+        .solution-heading em {
+            font-style: italic;
+            color: var(--color-forest-green);
+        }
+
+        .solution-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .solution-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f5f5f5, #efefef);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 2rem;
+            order: -1;
+        }
+
+        .solution-card {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .solution-intro {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .solution-intro strong {
+            color: var(--color-forest-green);
+            font-weight: 700;
+        }
+
+        .outcomes {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .outcome {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .outcome-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: #2e7d32;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .outcome strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: #333;
+        }
+
+        @media (max-width: 1024px) {
+            .solution-layout {
+                grid-template-columns: 1fr;
+            }
+            .solution-image-placeholder {
+                order: 0;
+            }
+        }
+
+        /* Testimonial Banner */
+        .testimonial-banner {
+            background: linear-gradient(135deg, var(--color-forest-dark), var(--color-forest-green));
+            padding: 5rem 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial-banner-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .banner-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .banner-attribution {
+            font-size: 0.95rem;
+            color: var(--color-sand);
+            font-weight: 600;
+        }
+
+        .testimonial-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--color-gold);
+            margin: 3rem auto;
+            opacity: 0.6;
+        }
+
+        /* What's Included */
+        .whats-included {
+            padding: 5rem 2rem;
+            background: var(--color-light-bg);
+        }
+
+        .whats-included-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .whats-included h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .whats-included h2 em {
+            font-style: italic;
+            color: var(--color-forest-green);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-mist);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .feature-value {
+            display: inline-block;
+            background: #f5f5f5;
+            color: var(--color-forest-green);
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .how-it-works-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .how-it-works h2 em {
+            font-style: italic;
+            color: var(--color-forest-green);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-mist);
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 100px;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--color-forest-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .timeline-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .timeline-step p {
+            color: var(--color-gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Meet Marilee */
+        .meet-marilee {
+            padding: 5rem 2rem;
+            background: var(--color-light-bg);
+        }
+
+        .meet-marilee-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .meet-marilee-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .marilee-photo-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--color-forest-green), var(--color-mist));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.95rem;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .credential-badge {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .credential-1 {
+            bottom: 30px;
+            left: 30px;
+        }
+
+        .credential-2 {
+            bottom: 30px;
+            right: 30px;
+        }
+
+        .credential-3 {
+            top: 30px;
+            right: 30px;
+        }
+
+        .marilee-bio h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .marilee-bio h2 em {
+            font-style: italic;
+            color: var(--color-forest-green);
+        }
+
+        .marilee-bio p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .marilee-cta {
+            background: var(--color-forest-green);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-forest-green);
+            margin-top: 1.5rem;
+        }
+
+        .marilee-cta:hover {
+            background: transparent;
+            color: var(--color-forest-green);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1024px) {
+            .meet-marilee-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* What Makes FTA Different */
+        .whats-different {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .whats-different-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .whats-different-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .whats-different h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .whats-different h2 em {
+            font-style: italic;
+            color: var(--color-forest-green);
+        }
+
+        .differentiator-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .differentiator-card {
+            padding: 1.5rem;
+            background: var(--color-light-bg);
+            border-left: 4px solid var(--color-forest-green);
+            border-radius: 0.5rem;
+        }
+
+        .differentiator-card h4 {
+            font-size: 1rem;
+            color: var(--color-forest-green);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .differentiator-card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .whats-different-photo {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--color-mist), var(--color-sand));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 0.95rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .whats-different-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Student Stories */
+        .student-stories {
+            background: linear-gradient(135deg, var(--color-forest-dark), var(--color-forest-green));
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .student-stories-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .student-stories h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.3;
+        }
+
+        .student-stories h2 em {
+            font-style: italic;
+            color: var(--color-gold);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .story-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .story-stars {
+            color: var(--color-gold);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .story-quote {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-style: italic;
+        }
+
+        .story-name {
+            font-size: 0.85rem;
+            color: var(--color-sand);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 2rem;
+            background: var(--color-light-bg);
+        }
+
+        .faq-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+        }
+
+        .faq-heading {
+            position: sticky;
+            top: 100px;
+        }
+
+        .faq-heading h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .faq-heading h2 em {
+            font-style: italic;
+            color: var(--color-forest-green);
+        }
+
+        .faq-items {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: #333;
+            transition: all 0.3s ease;
+            font-family: var(--font-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: var(--color-light-bg);
+        }
+
+        .faq-question.active {
+            background: var(--color-forest-green);
+            color: white;
+        }
+
+        .faq-arrow {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .faq-question.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 1.5rem;
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 1024px) {
+            .faq-layout {
+                grid-template-columns: 1fr;
+            }
+            .faq-heading {
+                position: relative;
+                top: auto;
+            }
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--color-forest-green), var(--color-forest-dark));
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .final-cta h2 em {
+            font-style: italic;
+            color: var(--color-gold);
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .final-cta-button {
+            background: var(--color-gold);
+            color: var(--color-forest-dark);
+            padding: 1.2rem 3rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-gold);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 1.05rem;
+        }
+
+        .final-cta-button:hover {
+            background: transparent;
+            color: var(--color-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-forest-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-main-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-main-logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-logo-text {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-sand);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .proof-heading {
+                font-size: 1.6rem;
+            }
+
+            .problem-heading,
+            .solution-heading,
+            .whats-included h2,
+            .how-it-works h2 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .marilee-photo-placeholder {
+                height: 350px;
+            }
+
+            .final-cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-logo-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 2.5rem;
+            }
+
+            .testimonial-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">
+                <div class="nav-logo-circle"><img src="images/FTN CIRCLE LOGO GREEN copy.png" alt="FTA Logo"></div>
+                Foundational Trading Academy
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#whats-included">What's Included</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="https://foundationaltrading.mn.co" class="nav-cta">Join Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Learn to Read the Markets and Trade with <em>Confidence</em></h1>
+                <p>Foundational Trading Academy teaches complete beginners the real fundamentals of technical analysis, macro market drivers, and options trading — with the personalized support to actually make it stick.</p>
+                <a href="https://foundationaltrading.mn.co" class="hero-cta">Start Your Trading Journey →</a>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-logo-placeholder">
+                    <img src="images/FTN CIRCLE LOGO WHITE.png" alt="Foundational Trading Academy - Tree of Life Logo">
+                </div>
+                <div class="testimonial-card">
+                    <div class="star-rating">★★★★★</div>
+                    <p>"Attending these calls has allowed me to bring in cash flow of over 5K last month from trading!"</p>
+                    <div class="testimonial-attribution">Brandon - FTA Student</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF BAR -->
+    <section class="social-proof">
+        <div class="social-proof-container">
+            <p class="proof-intro">Trusted by students building real trading skills from the ground up</p>
+            <h2 class="proof-heading">Real Foundations. <em>Real Strategies.</em> Real Confidence.</h2>
+            <div class="proof-stats">
+                <div class="stat-block">
+                    <div class="stat-number">70+</div>
+                    <div class="stat-label">Active Students<br>Learning & Trading Together</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years<br>In the Markets</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Pillars of Support<br>Curriculum, Live Calls, 1-on-1</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM SECTION -->
+    <section class="problem-section" id="about">
+        <div class="problem-container">
+            <span class="section-chip">Why Most New Traders Struggle</span>
+            <h2 class="problem-heading">You Don't Need <em>More</em> Trading Tips — You Need a Real Foundation.</h2>
+
+            <div class="problem-layout">
+                <div class="problem-card">
+                    <span class="card-tag">The Problem</span>
+                    <p>Most new traders fail not because they lack discipline or intelligence. They fail because nobody taught them the actual foundations — the real building blocks that let you understand markets on your own terms.</p>
+
+                    <ul class="pain-points">
+                        <li class="pain-point">
+                            <span class="pain-icon">✕</span>
+                            <span>You're copying someone else's trades, but <strong>don't understand the reasoning behind them</strong></span>
+                        </li>
+                        <li class="pain-point">
+                            <span class="pain-icon">✕</span>
+                            <span>Charts look like a foreign language and you <strong>don't know where to start</strong></span>
+                        </li>
+                        <li class="pain-point">
+                            <span class="pain-icon">✕</span>
+                            <span>You've tried learning on your own, but <strong>there's no clear path or sequence</strong></span>
+                        </li>
+                        <li class="pain-point">
+                            <span class="pain-icon">✕</span>
+                            <span>You want to take control of your finances, but <strong>trading feels risky and confusing</strong></span>
+                        </li>
+                        <li class="pain-point">
+                            <span class="pain-icon">✕</span>
+                            <span>Most "educators" skip the basics and just <strong>hand you a strategy that doesn't fit you</strong></span>
+                        </li>
+                    </ul>
+
+                    <div class="problem-bottom">
+                        <strong>Bottom line:</strong> You're not failing because you lack discipline. You're failing because nobody taught you the actual foundations — the real building blocks that let you understand markets on your own terms.
+                    </div>
+                </div>
+
+                <div class="problem-image-placeholder">
+                    [Replace with: Chart/market confusion imagery]
+                    <!-- REPLACE: Add problem section image here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SOLUTION SECTION -->
+    <section class="solution-section">
+        <div class="solution-container">
+            <span class="section-chip">The Solution</span>
+            <h2 class="solution-heading">Imagine feeling <strong>CLEAR</strong> and <strong>CONFIDENT</strong> every time you open a chart.</h2>
+
+            <div class="solution-layout">
+                <div class="solution-image-placeholder">
+                    [Replace with: Confident trader, success imagery]
+                    <!-- REPLACE: Add solution section image here -->
+                </div>
+
+                <div class="solution-card">
+                    <span class="card-tag">The Solution</span>
+                    <div class="solution-intro">Imagine feeling <strong>CLEAR</strong> and <strong>CONFIDENT</strong> every time you open a chart — knowing exactly what you're looking at and how to act on it.</div>
+
+                    <p style="font-weight: 600; margin-bottom: 1.5rem;">After Foundational Trading Academy, you:</p>
+
+                    <ul class="outcomes">
+                        <li class="outcome">
+                            <span class="outcome-icon">✓</span>
+                            <div>
+                                <strong>Understand how to read any chart</strong> — technical analysis becomes second nature
+                            </div>
+                        </li>
+                        <li class="outcome">
+                            <span class="outcome-icon">✓</span>
+                            <div>
+                                <strong>Grasp the macro forces</strong> that move markets, so you're never blindsided
+                            </div>
+                        </li>
+                        <li class="outcome">
+                            <span class="outcome-icon">✓</span>
+                            <div>
+                                <strong>Know how to trade options</strong> with intention — not gambling, but informed decision-making
+                            </div>
+                        </li>
+                        <li class="outcome">
+                            <span class="outcome-icon">✓</span>
+                            <div>
+                                <strong>Build YOUR own strategy</strong> based on your risk tolerance, goals, and life
+                            </div>
+                        </li>
+                        <li class="outcome">
+                            <span class="outcome-icon">✓</span>
+                            <div>
+                                <strong>Feel confident and in control</strong> of your financial future
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL BANNER -->
+    <section class="testimonial-banner">
+        <div class="testimonial-banner-container">
+            <p class="banner-quote">"I'm starting to really feel confident in my investing skillset. I took profits on two options trades I made — 39% ROI on AMD and OVER 300% RETURN ON NVIDIA IN JUST 10 DAYS. Shoutout to Marilee for bringing that accountability and motivation."</p>
+            <p class="banner-attribution">Brandon — Student</p>
+
+            <div class="testimonial-divider"></div>
+
+            <p class="banner-quote">"You have helped me in such a way that there is no amount of money that could pay you what you are worth. I struggled before you created FTA. Now, things click like they have never done before. I sold my 2 IREN positions and walking away with over $4k in profit. All because you have created a space that fits my learning style so much better."</p>
+            <p class="banner-attribution">Sonja — Student</p>
+
+            <div class="testimonial-divider"></div>
+
+            <p class="banner-quote">"Since being in the FTA for 6 months my profits are just over $13,000, and that is after the monthly expense of the group! I am so grateful to be in this group and learning from you!"</p>
+            <p class="banner-attribution">Wendy — Student</p>
+        </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="whats-included" id="whats-included">
+        <div class="whats-included-container">
+            <span class="section-chip">Everything You Get</span>
+            <h2>One Membership. <em>Complete</em> Support.</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Comprehensive Video Curriculum</h3>
+                    <p>In-depth course covering technical analysis fundamentals, reading charts, macro market drivers, and options trading strategies.</p>
+                    <span class="feature-value">$500 value</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>Live Implementation Calls</h3>
+                    <p>Weekly live sessions where Marilee applies concepts in real-time, answers questions, and keeps you accountable.</p>
+                    <span class="feature-value">$500 value</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>1-on-1 Support Calls</h3>
+                    <p>Personalized sessions to overcome specific knowledge blocks, refine your strategy, and get direct guidance.</p>
+                    <span class="feature-value">$400 value</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Live Trade Transparency</h3>
+                    <p>See Marilee's personal trades in real-time with full reasoning and macro context behind every decision.</p>
+                    <span class="feature-value">Priceless</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Skills Development Roadmap</h3>
+                    <p>A self-led learning journey map that guides you from beginner to confident trader in a logical sequence.</p>
+                    <span class="feature-value">$100 value</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Private Community</h3>
+                    <p>Connect with fellow students, share wins, ask questions, and stay accountable to your trading goals.</p>
+                    <span class="feature-value">Included</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="how-it-works-container">
+            <span class="section-chip">Your Learning Path</span>
+            <h2>From Confused to <em>Confident</em> in Four Phases</h2>
+
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-number">01</div>
+                    <h3>Build Your Foundation</h3>
+                    <p>Start with the absolute basics. Learn what charts really show, how to read candlesticks, support and resistance, and the core concepts every trader needs to know before anything else makes sense.</p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-number">02</div>
+                    <h3>Understand the Bigger Picture</h3>
+                    <p>Discover the macro forces that move markets. Learn how interest rates, inflation, earnings, and global events create the context for every trade. This is what separates informed traders from guessers.</p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-number">03</div>
+                    <h3>Learn to Trade Options</h3>
+                    <p>Master the mechanics of options trading with intention. Understand calls, puts, spreads, and how to use leverage strategically — not recklessly. Build confidence in this powerful tool.</p>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-number">04</div>
+                    <h3>Develop YOUR Strategy</h3>
+                    <p>Create your own trading strategy based on your unique risk tolerance, life circumstances, and financial goals. You're not copying anyone — you're building something that's truly yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET MARILEE -->
+    <section class="meet-marilee">
+        <div class="meet-marilee-container">
+            <span class="section-chip">Meet Marilee</span>
+
+            <div class="meet-marilee-layout">
+                <div class="marilee-photo-placeholder">
+                    [Replace with: Marilee Cordova headshot photo]
+                    <!-- REPLACE: Add Marilee's professional headshot here -->
+                    <div class="credential-badge credential-1">10+ Years<br>in the Markets</div>
+                    <div class="credential-badge credential-2">Macro-Driven<br>Swing Trader</div>
+                    <div class="credential-badge credential-3">200+ Students<br>Taught</div>
+                </div>
+
+                <div class="marilee-bio">
+                    <h2>Your Guide from <em>Curiosity to Confidence</em></h2>
+                    <p>Marilee started her trading journey over 10 years ago out of pure curiosity. She spent years learning the hard way — reading charts, analyzing market drivers, experiencing both wins and losses. But the real breakthrough came when she realized most trading educators skip the fundamentals and jump straight to tactics.</p>
+                    <p>That's why she built Foundational Trading Academy. She wanted to create what she wished existed when she started: a place where beginners could learn the real foundations, understand the "why" behind every concept, and develop their own confident approach to trading.</p>
+                    <p>Today, Marilee teaches 70+ active students through FTA, runs her own macro-driven swing trading strategy, and remains deeply committed to helping others build real trading skills. Her teaching philosophy is simple: patience with fundamentals, personalized support, and the belief that anyone can learn to read markets when given a real foundation to build on.</p>
+                    <a href="https://foundationaltrading.mn.co" class="marilee-cta">Learn With Marilee →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT MAKES FTA DIFFERENT -->
+    <section class="whats-different">
+        <div class="whats-different-container">
+            <span class="section-chip">What Makes FTA Different</span>
+
+            <div class="whats-different-layout">
+                <div>
+                    <h2>Not Theory. <em>Foundations That Execute.</em></h2>
+
+                    <div class="differentiator-cards">
+                        <div class="differentiator-card">
+                            <h4>Patience with Fundamentals</h4>
+                            <p>We don't skip the basics. You'll master the core concepts before moving forward, because that's what makes everything else click.</p>
+                        </div>
+                        <div class="differentiator-card">
+                            <h4>Build Your OWN Strategy</h4>
+                            <p>You're not copying Marilee or anyone else. You'll develop a trading approach that fits your goals, risk tolerance, and life — and actually stick to it.</p>
+                        </div>
+                        <div class="differentiator-card">
+                            <h4>Personalized Support</h4>
+                            <p>Live calls, personalized support sessions, and a community of peers. You're never left alone when you hit a wall or have a question.</p>
+                        </div>
+                        <div class="differentiator-card">
+                            <h4>Failure is Data, Not Defeat</h4>
+                            <p>Every trade teaches you something. We help you extract the lessons, refine your approach, and keep moving forward with confidence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="whats-different-photo">
+                    [Replace with: Community/group learning imagery]
+                    <!-- REPLACE: Add FTA community or learning imagery here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT STORIES -->
+    <section class="student-stories">
+        <div class="student-stories-container">
+            <span class="section-chip">Student Stories</span>
+            <h2>What Students Say After Learning with <em>Marilee</em></h2>
+
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-stars">★★★★★</div>
+                    <p class="story-quote">"Joining FTA was one of the best decisions I've made this year, Thank you Marilee Cordova for everything!"</p>
+                    <p class="story-name">Tarek - FTA Student</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-stars">★★★★★</div>
+                    <p class="story-quote">"I got my first GTC sell order filled at 200%. The confidence and knowledge Marilee has given me is invaluable."</p>
+                    <p class="story-name">Nick - FTA Student</p>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-stars">★★★★★</div>
+                    <p class="story-quote">"Total contracts closed is 65 with an average ROI of 491% and a profit of $59,000! I never imagined something like this could happen. I feel so blessed and grateful! Thanks Marilee Cordova for this wonderful group you have setup and helped provide guidance along the way!"</p>
+                    <p class="story-name"> Matthew - FTA Student</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <div class="faq-layout">
+                <div class="faq-heading">
+                    <h2>The Answers You Need <em>Before</em> You Join</h2>
+                </div>
+
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Who is this for?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                FTA is designed for complete beginners who want to build real trading skills from the ground up. It's perfect for people who are curious about markets but don't know where to start, established professionals wanting to take control of their finances, and younger builders looking for supplemental income through trading. If you've tried learning on your own and felt lost, or if you're tired of following gurus without understanding the reasoning — this is for you.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Do I need any trading experience?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Not at all. Zero experience required. In fact, coming in with a completely open mind is ideal. We start with the absolute fundamentals and build from there. If you understand what a stock is and can use a computer, you have everything you need to get started.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>What makes this different from other trading courses?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Most trading courses skip the fundamentals and jump straight to "here's the strategy." FTA is different because we obsess over the foundations first. You'll understand the "why" behind every concept, not just the "how." Plus, you're not learning a fixed strategy — you're learning how to build your own based on your unique situation. And you get live support, not just video lessons gathering dust.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How much time do I need to commit?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                The curriculum is self-paced, so it's flexible. Most students find they can commit a few hours per week to the video lessons and materials. Live implementation calls are optional but highly recommended. 1-on-1 calls are scheduled at your convenience. You get out what you put in, but the structure is designed to fit real life, not demand everything.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>How much does it cost?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                FTA is a monthly subscription at $400/month. Enrollment opens for one week each month to maintain the quality of community and support we provide. If the enrollment window is currently closed, you can <a href="https://forms.clickup.com/90151690995/f/2kyqb8qk-655/1DPO7AJ593EXM55QBR" target="_blank" style="color: var(--color-gold); text-decoration: underline;">apply here</a> to be first in line when the next window opens.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>When is the next enrollment window?</span>
+                            <span class="faq-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Enrollment opens for one week each month. If the window is currently closed, don't worry — <a href="https://forms.clickup.com/90151690995/f/2kyqb8qk-655/1DPO7AJ593EXM55QBR" target="_blank" style="color: var(--color-gold); text-decoration: underline;">submit an application here</a> and you'll be notified as soon as the next enrollment window opens.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="final-cta-container">
+            <h2>Your Foundation Starts Here. <em>Let's Build It Together.</em></h2>
+            <p>Join 70+ students who are learning to read charts, understand markets, and trade with confidence.</p>
+            <a href="https://foundationaltrading.mn.co" class="final-cta-button">Join Foundational Trading Academy →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main-logo">
+                <img src="images/FTN CIRCLE LOGO WHITE.png" alt="Foundational Trading Academy Logo">
+            </div>
+            <div class="footer-logo">
+                <div class="footer-logo-text">Foundational Trading Academy</div>
+            </div>
+            <div class="footer-links">
+                <a href="https://foundationaltrading.mn.co">Join Now</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://tiktok.com" target="_blank">TikTok</a>
+                <a href="mailto:hello@foundationaltrading.com">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Foundational Trading Academy. All rights reserved. | Marilee Cordova
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            if (section.id !== 'home') {
+                observer.observe(section);
+            }
+        });
+
+        // Observe cards
+        document.querySelectorAll('.feature-card, .differentiator-card, .story-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // FAQ Accordion
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+
+            // Close all other FAQs
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.classList.remove('active');
+                btn.nextElementSibling.classList.remove('active');
+            });
+
+            // Toggle current FAQ
+            if (!isActive) {
+                button.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in class to elements on page load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.feature-card, .stat-block, .differentiator-card, .story-card').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('fade-in');
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
