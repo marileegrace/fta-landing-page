@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn technical analysis, macro market drivers, and options trading with Foundational Trading Academy. Complete beginner-friendly curriculum with live implementation calls and 1-on-1 support.">
+    <meta name="description" content="Learn technical analysis, macro market drivers, and options trading with Foundational Trading Academy. Complete beginner-friendly curriculum with live implementation calls and live support.">
     <meta name="theme-color" content="#2F4A31">
 
     <!-- Open Graph -->
@@ -475,15 +475,15 @@
         .problem-image-placeholder {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #f5f5f5, #efefef);
             border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-gray);
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .problem-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
         }
 
         @media (max-width: 1024px) {
@@ -525,16 +525,16 @@
         .solution-image-placeholder {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #f5f5f5, #efefef);
             border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-gray);
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 2rem;
+            overflow: hidden;
             order: -1;
+        }
+
+        .solution-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
         }
 
         .solution-card {
@@ -804,17 +804,17 @@
         .marilee-photo-placeholder {
             width: 100%;
             height: 500px;
-            background: linear-gradient(135deg, var(--color-forest-green), var(--color-mist));
             border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.95rem;
-            text-align: center;
-            padding: 2rem;
+            overflow: hidden;
             position: relative;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .marilee-photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
         }
 
         .credential-badge {
@@ -948,15 +948,15 @@
         .whats-different-photo {
             width: 100%;
             height: 500px;
-            background: linear-gradient(135deg, var(--color-mist), var(--color-sand));
             border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            font-size: 0.95rem;
-            text-align: center;
-            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .whats-different-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
         }
 
         @media (max-width: 1024px) {
@@ -1395,7 +1395,7 @@
                 </div>
                 <div class="stat-block">
                     <div class="stat-number">3</div>
-                    <div class="stat-label">Pillars of Support<br>Curriculum, Live Calls, 1-on-1</div>
+                    <div class="stat-label">Pillars of Support<br>Curriculum, Live Calls, Support Calls</div>
                 </div>
             </div>
         </div>
@@ -1441,8 +1441,7 @@
                 </div>
 
                 <div class="problem-image-placeholder">
-                    [Replace with: Chart/market confusion imagery]
-                    <!-- REPLACE: Add problem section image here -->
+                    <img src="frustrated-trader.jpg" alt="Overwhelmed trader struggling with charts">
                 </div>
             </div>
         </div>
@@ -1456,8 +1455,7 @@
 
             <div class="solution-layout">
                 <div class="solution-image-placeholder">
-                    [Replace with: Confident trader, success imagery]
-                    <!-- REPLACE: Add solution section image here -->
+                    <img src="happy-trader.jpg" alt="Confident trader reading charts with clarity">
                 </div>
 
                 <div class="solution-card">
@@ -1544,7 +1542,7 @@
 
                 <div class="feature-card">
                     <div class="feature-icon">👤</div>
-                    <h3>1-on-1 Support Calls</h3>
+                    <h3>Live Support Calls</h3>
                     <p>Personalized sessions to overcome specific knowledge blocks, refine your strategy, and get direct guidance.</p>
                     <span class="feature-value">$400 value</span>
                 </div>
@@ -1614,8 +1612,7 @@
 
             <div class="meet-marilee-layout">
                 <div class="marilee-photo-placeholder">
-                    [Replace with: Marilee Cordova headshot photo]
-                    <!-- REPLACE: Add Marilee's professional headshot here -->
+                    <img src="marilee-headshot.jpg" alt="Marilee Cordova - Founder of Foundational Trading Academy">
                     <div class="credential-badge credential-1">10+ Years<br>in the Markets</div>
                     <div class="credential-badge credential-2">Macro-Driven<br>Swing Trader</div>
                     <div class="credential-badge credential-3">200+ Students<br>Taught</div>
@@ -1662,8 +1659,7 @@
                 </div>
 
                 <div class="whats-different-photo">
-                    [Replace with: Community/group learning imagery]
-                    <!-- REPLACE: Add FTA community or learning imagery here -->
+                    <img src="community-call.jpg" alt="FTA community learning call">
                 </div>
             </div>
         </div>
@@ -1749,7 +1745,7 @@
                         </button>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                The curriculum is self-paced, so it's flexible. Most students find they can commit a few hours per week to the video lessons and materials. Live implementation calls are optional but highly recommended. 1-on-1 calls are scheduled at your convenience. You get out what you put in, but the structure is designed to fit real life, not demand everything.
+                                The curriculum is self-paced, so it's flexible. Most students find committing 4-5 hours per week to the video lessons and materials gives them considerable growth. Live implementation calls are optional but highly recommended. Formal and casual support calls happen weekly as well. You get out what you put in, but the structure is designed to fit real life, not demand everything.
                             </div>
                         </div>
                     </div>
