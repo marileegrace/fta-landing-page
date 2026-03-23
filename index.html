@@ -15,6 +15,15 @@
 
     <title>Foundational Trading Academy - Learn to Read the Markets</title>
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XVWLDWR34J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XVWLDWR34J');
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1885,6 +1894,41 @@
                 setTimeout(() => {
                     el.classList.add('fade-in');
                 }, index * 100);
+            });
+        });
+
+        // Google Analytics - CTA Click Tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track Nav "Join Now" button
+            document.querySelector('.nav-cta')?.addEventListener('click', function() {
+                gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'Nav - Join Now' });
+            });
+
+            // Track Hero CTA
+            document.querySelector('.hero-cta')?.addEventListener('click', function() {
+                gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'Hero - Start Your Trading Journey' });
+            });
+
+            // Track Marilee section CTA
+            document.querySelector('.marilee-cta')?.addEventListener('click', function() {
+                gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'About - Learn With Marilee' });
+            });
+
+            // Track Final CTA button
+            document.querySelector('.final-cta-button')?.addEventListener('click', function() {
+                gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'Final CTA - Join FTA' });
+            });
+
+            // Track Footer "Join Now" link
+            document.querySelector('.footer-links a[href*="foundationaltrading.mn.co"]')?.addEventListener('click', function() {
+                gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'Footer - Join Now' });
+            });
+
+            // Track ClickUp application form clicks
+            document.querySelectorAll('a[href*="clickup.com"]').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'FAQ - Application Form' });
+                });
             });
         });
     </script>
